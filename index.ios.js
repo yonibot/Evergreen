@@ -15,12 +15,9 @@ import {
 import { observable, useStrict } from 'mobx';
 import { observer } from 'mobx-react';
 import myExpensesStore from './models/ExpensesStore';
+import ExpensesList from './views/ExpensesList';
 
-// useStrict(true);
 
-today_date = new Date();
-
-debugger;
 @observer
 export default class Evergreen extends Component {
   @observable message = 'Hello world';
@@ -29,11 +26,11 @@ export default class Evergreen extends Component {
     debugger;
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          { myExpensesStore.expenses.map(expense => (
-            <Text>{expense.title}</Text>
-          )) }
-        </Text>
+        <View style={styles.listView}>
+          <ExpensesList />
+        </View>
+        <View style={styles.budgetBar}>
+        </View>
       </View>
     );
   }
@@ -42,20 +39,13 @@ export default class Evergreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  listView: {
+    flex: 0.8
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  budgetBar: {
+    flex: 0.2
+  }
 });
 
 AppRegistry.registerComponent('Evergreen', () => Evergreen);

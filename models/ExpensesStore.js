@@ -40,17 +40,14 @@ class ExpensesStore {
   }
 
 	getExpenses() {
-    debugger;
     AsyncStorage.getItem(EXPENSES_KEY)
       .then((data) => {
-        debugger;
       });
   }
 
   saveExpense(expense) {
      AsyncStorage.saveItem(EXPENSES_KEY)
       .then((data) => {
-        debugger;
       });
   }
 }
